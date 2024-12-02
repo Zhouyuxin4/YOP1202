@@ -73,7 +73,7 @@ function JourneyDetails() {
             });
     
             const response = await axios.put(
-                `http://localhost:3000/details/${id}/${detailId}/update`,
+                `https://yop-api.vercel.app/details/${id}/${detailId}/update`,
                 updateData,  // 直接发送对象
                 {withCredentials: true});
     
@@ -93,7 +93,7 @@ function JourneyDetails() {
         try {
 
             const response = await axios.get(
-                `http://localhost:3000/details/${id}/allDetails`,
+                `https://yop-api.vercel.app/details/${id}/allDetails`,
                 {withCredentials: true});
 
             setDetails(response.data);
@@ -126,9 +126,9 @@ function JourneyDetails() {
         }
 
         try {
-            console.log(`http://localhost:3000/details/${id}/${detailId}`);
+            console.log(`https://yop-api.vercel.app/details/${id}/${detailId}`);
             const response = await axios.delete(
-                `http://localhost:3000/details/${id}/${detailId}`, {withCredentials: true}
+                `https://yop-api.vercel.app/details/${id}/${detailId}`, {withCredentials: true}
             );
 
             if (response.status === 200) {
@@ -165,7 +165,7 @@ function JourneyDetails() {
             }
 
             const response = await axios.put(
-                `http://localhost:3000/journeys/${id}`,
+                `https://yop-api.vercel.app/journeys/${id}`,
                 {
                     title: newTitle,
                 }, {withCredentials: true});
@@ -194,7 +194,7 @@ function JourneyDetails() {
         try {
             const user = JSON.parse(localStorage.getItem('user'));
             const response = await axios.delete(
-                `http://localhost:3000/journeys/${user.userName}/${id}`, {withCredentials: true});
+                `https://yop-api.vercel.app/journeys/${user.userName}/${id}`, {withCredentials: true});
 
             if (response.status === 200) {
                 alert('Journey deleted successfully');

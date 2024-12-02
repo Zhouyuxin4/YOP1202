@@ -17,7 +17,7 @@ function SearchPage() {
     const handleSearchJourney = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/users/${userName}/search`,
+                `https://yop-api.vercel.app/users/${userName}/search`,
                 {
                     params: { keyword },
                     withCredentials: true,

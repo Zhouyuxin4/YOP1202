@@ -41,7 +41,7 @@ const MapComponent = ({ apiKey }) => {
             try {
 
                 // const response = await axios.get(
-                //     `http://localhost:3000/details/${id}/allDetails`,
+                //     `https://yop-api.vercel.app/details/${id}/allDetails`,
                 //     {
                 //         headers: {
                 //             Authorization: `Bearer ${localStorage.getItem('authToken')}`
@@ -49,7 +49,7 @@ const MapComponent = ({ apiKey }) => {
                 //     }
                 // );
                 const response = await axios.get(
-                    `http://localhost:3000/details/${id}/allDetails`, {withCredentials: true});
+                    `https://yop-api.vercel.app/details/${id}/allDetails`, {withCredentials: true});
 
                 // Convert to all details to markers
                 const existingMarkers = response.data.map(detail => ({
@@ -196,7 +196,7 @@ const MapComponent = ({ apiKey }) => {
 
             console.log('Details Information:', formData);
 
-            // const response = await axios.post(`http://localhost:3000/details/${journeyId}/createDetails`,
+            // const response = await axios.post(`https://yop-api.vercel.app/details/${journeyId}/createDetails`,
             // formData,
             //  {
             //     headers: {
@@ -204,7 +204,7 @@ const MapComponent = ({ apiKey }) => {
             //         'Content-Type': 'multipart/form-data',
             //     },
             // });
-            const response = await axios.post(`http://localhost:3000/details/${journeyId}/createDetails`,
+            const response = await axios.post(`https://yop-api.vercel.app/details/${journeyId}/createDetails`,
                 formData, {withCredentials: true});
 
             const newDetailId = response.data._id;
@@ -252,7 +252,7 @@ const MapComponent = ({ apiKey }) => {
 
     //     console.log('Deleting marker:', marker); 
     //     try {
-    //         await axios.delete(`http://localhost:3000/details/${journeyId}/${marker.detailID}`);
+    //         await axios.delete(`https://yop-api.vercel.app/details/${journeyId}/${marker.detailID}`);
     //         const updatedMarkers = markers.filter((_, i) => i !== index);
     //         setMarkers(updatedMarkers);
     //         setSelectedMarkerIndex(null);
