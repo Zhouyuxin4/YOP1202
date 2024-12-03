@@ -48,19 +48,22 @@ function SignIn() {
                     secure: true,
                     sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    expires: 7            // Optional: Expires in 7 days
+                    expires: 7,            // Optional: Expires in 7 days
+                    domain: "vercel.app"
                 });
                 Cookies.set('user', JSON.stringify(user), {
                     secure: true,
                     sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    expires: 7            // Optional: Expires in 7 days
+                    expires: 7,            // Optional: Expires in 7 days
+                    domain: "vercel.app"
                 });
                 Cookies.set('user.userName', user.userName, {
                     secure: true,
                     sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    expires: 7            // Optional: Expires in 7 days
+                    expires: 7,            // Optional: Expires in 7 days
+                    domain: "vercel.app"
                 });
 
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

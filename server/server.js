@@ -43,10 +43,11 @@ app.get('/', (req, res) => {
 });
 app.use(express.json());
 const customHeadersAppLevel = function (req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Origin', 'https://yop-client.vercel.app');
   res.header(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
+    'Origin, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
   );
     next();
 };
