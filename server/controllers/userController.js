@@ -132,6 +132,7 @@ exports.updateUser = async (req, res) => {
             console.log('updated image')
             const bucketName = process.env.AWS_BUCKET_NAME;
             const key = `${Date.now()}-${profilePicture.originalname}`;
+            console.log("calling S3 client")
             const command = new PutObjectCommand({
                 Bucket: bucketName,
                 Key: key,
