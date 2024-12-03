@@ -139,7 +139,9 @@ exports.updateUser = async (req, res) => {
                 Body: profilePicture.buffer,
                 ContentType: profilePicture.mimetype, 
             });
+            console.log('finish setting up S3 client command')
             await s3Client.send(command);
+            console.log('finish sending S3 client command')
             profilePictureUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
             updatedData.profilePicture = profilePictureUrl;
             console.log("updated image url",updatedData.profilePicture)
