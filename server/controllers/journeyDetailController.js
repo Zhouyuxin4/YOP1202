@@ -2,12 +2,14 @@ const JourneyDetails = require('../models/JourneyDetails.js');
 const Journeys = require('../models/Journeys.js');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 
-const s3Client = new S3Client({
-    region: process.env.AWS_REGION,
-  credentials: {
+const credentials = {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
+  };
+  
+const s3Client = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: credentials,
 });
 
 //Get details by the journey ID

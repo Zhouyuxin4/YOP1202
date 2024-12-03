@@ -4,12 +4,15 @@ const Journeys = require('../models/Journeys.js');
 const JourneyDetails = require('../models/JourneyDetails.js');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 
-const s3Client = new S3Client({
-    region: process.env.AWS_REGION,
-  credentials: {
+
+const credentials = {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
+  };
+  
+const s3Client = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: credentials,
 });
 
 //Get all Users
@@ -140,8 +143,13 @@ exports.updateUser = async (req, res) => {
                 ContentType: profilePicture.mimetype, 
             });
             console.log('finish setting up S3 client command')
-            await s3Client.send(command);
-            console.log('finish sending S3 client command')
+            try {
+                const response = await s3Client.send(command);
+                console.log('finish sending S3 client command')
+            } catch (error) {
+                console.error("Error uploading to s3 :", error);
+            }
+
             profilePictureUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
             updatedData.profilePicture = profilePictureUrl;
             console.log("updated image url",updatedData.profilePicture)
