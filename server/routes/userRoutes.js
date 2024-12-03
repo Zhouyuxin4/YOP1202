@@ -6,8 +6,8 @@ const { authenticateToken } = require('../middleware/authMiddleware.js');
 
 const upload = multer({ storage: multer.memoryStorage() });
 router.post('/', upload.single('profilePicture'), userController.createUser); //to create a new user
-// router.post('/', upload.single('profilePicture'), userController.createUser);
-// router.post('/', userController.createUser);
+//router.post('/', upload.single('profilePicture'), userController.createUser);
+//router.post('/', userController.createUser);
 router.post('/login', userController.login); //to login
 
 router.get('/:userName', authenticateToken, userController.getuserName);

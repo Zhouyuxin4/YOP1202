@@ -142,6 +142,9 @@ exports.updateUser = async (req, res) => {
                 Body: profilePicture.buffer,
                 ContentType: profilePicture.mimetype, 
             });
+            console.log(process.env.AWS_ACCESS_KEY_ID)
+            console.log(process.env.AWS_SECRET_ACCESS_KEY)
+            console.log(process.env.AWS_REGION)
             console.log('finish setting up S3 client command')
             try {
                 const response = await s3Client.send(command);
