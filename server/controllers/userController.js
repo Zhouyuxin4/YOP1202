@@ -143,17 +143,8 @@ exports.updateUser = async (req, res) => {
                 ContentType: profilePicture.mimetype, 
             });
             console.log('finish setting up S3 client command')
-            s3Client.middlewareStack.add((next) => async (args) => {
-                console.log("Request Headers:", args.request.headers);
-                return next(args);
-            });
-            try {
-                const response = await s3Client.send(command);
-                console.log('finish sending S3 client command')
-            } catch (error) {
-                console.error("Error uploading to s3 :", error);
-            }
-
+            await s3Client.send(command);
+            console.log('finish sending S3 client command')
             profilePictureUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
             updatedData.profilePicture = profilePictureUrl;
             console.log("updated image url",updatedData.profilePicture)
