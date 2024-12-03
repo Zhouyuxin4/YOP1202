@@ -66,9 +66,10 @@ function SignIn() {
                     domain: ".vercel.app"
                 });
 
-                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
                 axios.defaults.withCredentials = true
                 axios.defaults.crossDomain = true;
+                axios.defaults.headers.common['Authorization'] = ``;
                 // localStorage.setItem('authToken', token);
                 // localStorage.setItem('user', JSON.stringify(user));
                 // localStorage.setItem('user.userName', user.userName);
