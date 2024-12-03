@@ -7,8 +7,6 @@ const cookieParser = require('cookie-parser');
 
 let cors = require("cors");
 // app.use(cors());
-const allowedOrigins = ['localhost',"http://localhost:8080", "http://127.0.0.1:8080","http://localhost:8080/"];
-
 app.use(cors({
   origin: 'https://yop-client.vercel.app',  // 允许前端域名
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // 允许的请求方法

@@ -95,6 +95,7 @@ function JourneyDetails() {
 
             const response = await axios.get(
                 `https://yop-api.vercel.app/details/${id}/allDetails`,
+                {withCredentials: true},
             );
 
             setDetails(response.data);
