@@ -205,7 +205,9 @@ const MapComponent = ({ apiKey }) => {
             //     },
             // });
             const response = await axios.post(`https://yop-api.vercel.app/details/${journeyId}/createDetails`,
-                formData, {withCredentials: true});
+                formData, {headers: {
+                    Authorization: `Bearer ${Cookies.get('authToken')}`, // Bearer token
+                  },withCredentials: true});
 
             const newDetailId = response.data._id;
             setDetailId(newDetailId);

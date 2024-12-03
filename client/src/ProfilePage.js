@@ -30,7 +30,9 @@ function ProfilePage() {
         try {
             const response = await axios.put(
                 `https://yop-api.vercel.app/users/${userName}`,
-                formData, {withCredentials: true});
+                formData, {headers: {
+                    Authorization: `Bearer ${Cookies.get('authToken')}`, // Bearer token
+                  },});
             const user = response.data;
             //localStorage.setItem('user', JSON.stringify(user));
             //localStorage.setItem('user', JSON.stringify(user));
