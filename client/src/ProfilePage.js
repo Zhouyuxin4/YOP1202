@@ -30,7 +30,7 @@ function ProfilePage() {
         try {
             const response = await axios.put(
                 `https://yop-api.vercel.app/users/${userName}`,
-                formData, { withCredentials: true });
+                formData);
             const user = response.data;
             //localStorage.setItem('user', JSON.stringify(user));
             //localStorage.setItem('user', JSON.stringify(user));
@@ -63,7 +63,7 @@ function ProfilePage() {
     
         console.log('delete account', { userName: user.userName });
         axios
-            .delete(`https://yop-api.vercel.app/users/${user.userName}`, { withCredentials: true })
+            .delete(`https://yop-api.vercel.app/users/${user.userName}`)
             .then(() => {
                 console.log('User account deleted.');
                 Cookies.remove('user');

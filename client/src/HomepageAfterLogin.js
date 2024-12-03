@@ -44,7 +44,7 @@ function HomepageAfterLogin({ userProfile }) {
             //         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             //     },
             // });
-            const response = await axios.post(`https://yop-api.vercel.app/journeys/${userName}`, journey, {withCredentials: true});
+            const response = await axios.post(`https://yop-api.vercel.app/journeys/${userName}`, journey);
             const journeyId = response.data._id;
             console.log('Journey created:', response.data);
             navigate(`/journey/${journeyId}`);
@@ -67,7 +67,7 @@ function HomepageAfterLogin({ userProfile }) {
 
         console.log(userName);
         console.log(Cookies.get('authToken'));
-        axios.get(`https://yop-api.vercel.app/journeys/${userName}`, {withCredentials: true})
+        axios.get(`https://yop-api.vercel.app/journeys/${userName}`)
             .then(response => {
                 console.log(response.data);
                 setJourneys(response.data);

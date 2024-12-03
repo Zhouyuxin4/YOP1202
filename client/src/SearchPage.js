@@ -20,7 +20,6 @@ function SearchPage() {
                 `https://yop-api.vercel.app/users/${userName}/search`,
                 {
                     params: { keyword },
-                    withCredentials: true,
                 }
             );
             setJourneys(response.data);

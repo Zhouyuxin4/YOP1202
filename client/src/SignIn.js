@@ -30,7 +30,7 @@ function SignIn() {
                 formData.append('profilePicture', profilePicture);
             }
             try {
-                const response = await axios.post('https://yop-api.vercel.app/users/', formData, {withCredentials: true});
+                const response = await axios.post('https://yop-api.vercel.app/users/', formData);
                 console.log('User created:', response.data);
                 alert('Sign up successfully! Please log in.');
                 navigate('/'); 
@@ -41,7 +41,7 @@ function SignIn() {
         } else {
             console.log('Signing in:', { userName, password });
             try {
-                const response = await axios.post('https://yop-api.vercel.app/users/login', { userName, password }, {withCredentials: true});
+                const response = await axios.post('https://yop-api.vercel.app/users/login', { userName, password });
                 const { token, user } = response.data;
                 console.log('Login successful:', user);
                 Cookies.set('authToken', token, {

@@ -49,7 +49,7 @@ const MapComponent = ({ apiKey }) => {
                 //     }
                 // );
                 const response = await axios.get(
-                    `https://yop-api.vercel.app/details/${id}/allDetails`, {withCredentials: true});
+                    `https://yop-api.vercel.app/details/${id}/allDetails`);
 
                 // Convert to all details to markers
                 const existingMarkers = response.data.map(detail => ({
@@ -205,7 +205,7 @@ const MapComponent = ({ apiKey }) => {
             //     },
             // });
             const response = await axios.post(`https://yop-api.vercel.app/details/${journeyId}/createDetails`,
-                formData, {withCredentials: true});
+                formData);
 
             const newDetailId = response.data._id;
             setDetailId(newDetailId);
