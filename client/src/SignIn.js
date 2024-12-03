@@ -41,35 +41,34 @@ function SignIn() {
         } else {
             console.log('Signing in:', { userName, password });
             try {
+                axios.defaults.withCredentials = true
+                axios.defaults.crossDomain = true;
                 const response = await axios.post('https://yop-api.vercel.app/users/login', { userName, password });
                 const { token, user } = response.data;
                 console.log('Login successful:', user);
                 Cookies.set('authToken', token, {
                     secure: true,
-                    sameSite: 'Lax',     // Allows cross-site requests
+                    sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
                     expires: 7,            // Optional: Expires in 7 days
                     domain: ".vercel.app"
                 });
                 Cookies.set('user', JSON.stringify(user), {
                     secure: true,
-                    sameSite: 'Lax',     // Allows cross-site requests
+                    sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
                     expires: 7,            // Optional: Expires in 7 days
                     domain: ".vercel.app"
                 });
                 Cookies.set('user.userName', user.userName, {
                     secure: true,
-                    sameSite: 'Lax',     // Allows cross-site requests
+                    sameSite: 'None',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
                     expires: 7,            // Optional: Expires in 7 days
                     domain: ".vercel.app"
                 });
 
 
-                axios.defaults.withCredentials = true
-                axios.defaults.crossDomain = true;
-                axios.defaults.headers.common['Authorization'] = ``;
                 // localStorage.setItem('authToken', token);
                 // localStorage.setItem('user', JSON.stringify(user));
                 // localStorage.setItem('user.userName', user.userName);
