@@ -11,7 +11,7 @@ let cors = require("cors");
 app.use(cors({
   origin: 'https://yop-client.vercel.app',  // 允许前端域名
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // 允许的请求方法
-  allowedHeaders: ['Content-Type', 'Authorization'], // 允许的请求头
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'X-HTTP-Method-Override', 'Accept'], // 允许的请求头
   credentials: true  // 允许发送认证信息（cookies, authorization headers）
 }));
 
