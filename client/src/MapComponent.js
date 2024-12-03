@@ -49,7 +49,7 @@ const MapComponent = ({ apiKey }) => {
                 //     }
                 // );
                 const response = await axios.get(
-                    `https://yop-api.vercel.app/details/${id}/allDetails`);
+                    `https://yop-api.vercel.app/details/${id}/allDetails`, {withCredentials: true});
 
                 // Convert to all details to markers
                 const existingMarkers = response.data.map(detail => ({
@@ -205,14 +205,14 @@ const MapComponent = ({ apiKey }) => {
             //     },
             // });
             const response = await axios.post(`https://yop-api.vercel.app/details/${journeyId}/createDetails`,
-                formData);
+                formData, {withCredentials: true});
 
             const newDetailId = response.data._id;
             setDetailId(newDetailId);
             //localStorage.setItem('currentDetailId', newDetailId);
             Cookies.set('currentDetailId', newDetailId, {
                 secure: true,
-                sameSite: 'Lax',     // Allows cross-site requests
+                sameSite: 'None',     // Allows cross-site requests
                 path: '/',            // Makes the cookie accessible throughout the site
                 expires: 7,            // Optional: Expires in 7 days
                 domain: ".vercel.app"

@@ -75,6 +75,7 @@ function JourneyDetails() {
             const response = await axios.put(
                 `https://yop-api.vercel.app/details/${id}/${detailId}/update`,
                 updateData,  // 直接发送对象
+                {withCredentials: true},
             );
     
             if (response.status === 200) {
@@ -128,7 +129,8 @@ function JourneyDetails() {
         try {
             console.log(`https://yop-api.vercel.app/details/${id}/${detailId}`);
             const response = await axios.delete(
-                `https://yop-api.vercel.app/details/${id}/${detailId}`
+                `https://yop-api.vercel.app/details/${id}/${detailId}`,
+                {withCredentials: true},
             );
 
             if (response.status === 200) {
@@ -168,7 +170,8 @@ function JourneyDetails() {
                 `https://yop-api.vercel.app/journeys/${id}`,
                 {
                     title: newTitle,
-                });
+                },
+                {withCredentials: true});
 
             if (response.status === 200) {
                 alert('Journey updated successfully');
@@ -194,7 +197,7 @@ function JourneyDetails() {
         try {
             const user = JSON.parse(localStorage.getItem('user'));
             const response = await axios.delete(
-                `https://yop-api.vercel.app/journeys/${user.userName}/${id}`);
+                `https://yop-api.vercel.app/journeys/${user.userName}/${id}`, {withCredentials: true});
 
             if (response.status === 200) {
                 alert('Journey deleted successfully');
