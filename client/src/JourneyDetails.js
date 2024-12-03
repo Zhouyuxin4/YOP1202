@@ -195,9 +195,9 @@ function JourneyDetails() {
         }
 
         try {
-            const user = JSON.parse(localStorage.getItem('user'));
+            //const user = JSON.parse(localStorage.getItem('user'));
             const response = await axios.delete(
-                `https://yop-api.vercel.app/journeys/${user.userName}/${id}`, {withCredentials: true});
+                `https://yop-api.vercel.app/journeys/${Cookies.get('user.userName')}/${id}`, {withCredentials: true});
 
             if (response.status === 200) {
                 alert('Journey deleted successfully');
