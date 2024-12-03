@@ -112,12 +112,15 @@ function HomepageAfterLogin({ userProfile }) {
                         alt="Profile" 
                         className="profile-picture" 
                     />
-                    <h3> Hi, {userName}</h3>
-                    <p>You have recorded: {journeys.length} {journeys.length === 1 ? 'journey' : 'journeys'}</p>                </div>
+                    <div className='text-info'>
+                        <h2> Hi, {userName}</h2>
+                        <p>You have recorded: {journeys.length} {journeys.length === 1 ? 'journey' : 'journeys'}</p>               
+                    </div>
+                </div>
                 <button onClick={() => navigate('/profile')}>Profile</button>
             </div>
             <div className="historical-footprints">
-                <h2>My Historical Footprints</h2>
+                <h2>{userName}'s' Historical Footprints</h2>
                 <div className="journeys-list">
                     {journeys && journeys.length > 0 ? (
                         journeys.map((journey) => (

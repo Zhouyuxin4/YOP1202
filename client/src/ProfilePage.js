@@ -88,6 +88,7 @@ function ProfilePage() {
             <h1>Edit Profile</h1>
             <form onSubmit={handleSave}>
                 <div>
+                    <label for="userName">Name:</label>
                     <input className='profile-input'
                         type="text"
                         name="userName"
@@ -97,6 +98,7 @@ function ProfilePage() {
                     />
                 </div>
                 <div>
+                    <label for="password">Password:</label>
                     <input className='profile-input'
                         type="password"
                         name="password"
@@ -106,17 +108,15 @@ function ProfilePage() {
                     />
                 </div>
                 <div>
+                    <label for="profile-img-input">Image:</label>
                     <input className='profile-img-input'
+                        id="profile-img-input"
                         type="file"
                         onChange={(e) => setProfilePicture(e.target.files[0])}
                     />
                 </div>
-                <div>
                     <button onClick={handleSave}>Save Changes</button>
-                </div>
-                <div>
                     <button onClick={handleDelete}>Delete My Account</button>
-                </div>
             </form>
             <button onClick={handleGoBack}>Back to Homepage</button>
             </div>

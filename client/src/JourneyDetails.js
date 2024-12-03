@@ -214,19 +214,30 @@ function JourneyDetails() {
     return (
         <Layout userName={userName}>
         <div className="journey-details">
-            <h1>{currentTitle}</h1>
+            <h1>Details of {currentTitle}</h1>
+            <form className='journey-update-box' onSubmit={handleSubmit}>
+                <div>
+                    <input className='journey-update-title'
+                        type="text"
+                        placeholder="edit your journey title here"
+                        value={newTitle}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
+                    />
+                </div>
     
+                <button onClick={handleUpdateJourney}>Update Journey Title</button>
+            </form>
 
             <div className='details-container'>
             <MapComponent apiKey="AIzaSyBvjss2rrxy8HRCt-Yu6dnKRoUpX35wKh8"/>
 
             <div className="details-list">
-                <h2>Journey Details</h2>
                 {details.length > 0 ? (
                     details.map((detail, index) => (
                         <div key={detail._id} className="detail-item">
                             <div className="detail-content">
-                                <h3>Stop {index + 1}</h3>
+                                <h2>Stop {index + 1}</h2>
     
                             {editingDetailId === detail._id ? (
                                 <div className="edit-form">
@@ -325,22 +336,12 @@ function JourneyDetails() {
                 )}
             </div>
             </div>
+            <h3></h3>
     
-            <form className='journey-update-box' onSubmit={handleSubmit}>
-                <div>
-                    <input className='journey-update-title'
-                        type="text"
-                        placeholder="edit your journey title here"
-                        value={newTitle}
-                        onChange={(e) => setAddress(e.target.value)}
-                        required
-                    />
-                </div>
-    
-                <button onClick={handleUpdateJourney}>Update Journey Title</button>
-                <button onClick={handleGoBack}>Back to My Homepage</button>
-                <button className='delete-journey-button' onClick={handleDeleteJourney}>Delete Journey</button>
-            </form>
+            <div className='detail-button'>
+            <button className='delete-journey-button' onClick={handleDeleteJourney}>Delete Journey</button>
+            <button onClick={handleGoBack}>Back to My Homepage</button>
+            </div>
 
         </div>
         </Layout>

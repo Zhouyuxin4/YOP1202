@@ -11,7 +11,7 @@ function Homepage(){
       <div className='intro-box'>
         <div className='intro-box-top'>
           <h1>Your Own Planet</h1>
-          <h3>Explore - Record - Remember</h3>
+          <h2>Explore - Record - Remember</h2>
         </div>
         <div className='intro-box-bottom'>
           <p>The platform where every journey becomes a constellation of memories, whether they sparkle from distant horizons or glow softly in your own backyard.</p>

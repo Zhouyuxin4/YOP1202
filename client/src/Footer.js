@@ -7,15 +7,16 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-section">
-          <h4>About Us</h4>
-          <p>Your travel planning companion</p>
+          <p className='footer-head'>About Us</p>
+          <p>We help travelers create meaningful journeys.</p>
         </div>
         <div className="footer-section">
-          <h4>Contact</h4>
+          <p className='footer-head'>Contact</p>
           <p>Email: info@yourownplanet.com</p>
         </div>
         <div className="footer-section">
-          <h4>Follow Us</h4>
+          <p className='footer-head'>Follow Us</p>
+          <p>Instagram: YourOwnPlanet</p>
         </div>
       </div>
       <div className="footer-bottom">

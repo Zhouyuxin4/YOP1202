@@ -46,13 +46,15 @@ function SearchPage() {
         <div className="search-page">
             <div className='search-box'>
             <h2>Journey Search: Enter Keywords</h2>
-            <input className='search-input'
-                type="text"
-                placeholder="Search Keyword..."
-                value={keyword} //ATTENTION
-                onChange={(e) => setKeyword(e.target.value)}
-            />
-            <button onClick={handleSearchJourney}>Search</button>
+            <div className='search-place'>
+                <input className='search-input'
+                    type="text"
+                    placeholder="Search Keyword..."
+                    value={keyword} //ATTENTION
+                    onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button onClick={handleSearchJourney}>Search</button>
+            </div>
             <div className="journeys-list">
                 {journeys && journeys.length > 0 ? (
                     journeys.map((journey) =>
