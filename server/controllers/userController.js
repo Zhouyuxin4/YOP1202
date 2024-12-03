@@ -86,15 +86,15 @@ exports.login = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials.' });
         }
         const option = {
-            expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
-            httpoOnly: true,
+            expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),            // Optional: Expires in 7 days
+            httpOnly: true,
             secure: true,
             sameSite: "none",
             path: "/",
         }
         // If match, create a token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
-        res.status(200).json({ token, user: { userName: user.userName, profilePicture: user.profilePicture } });
+        res.status(200).cookie("authToken", token, option).json({ token, user: { userName: user.userName, profilePicture: user.profilePicture } });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
