@@ -86,9 +86,8 @@ exports.login = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials.' });
         }
         const option = {
-            expires: 7,            // Optional: Expires in 7 days
-            domain: ".vercel.app",
-            httpOnly: true,
+            expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+            httpoOnly: true,
             secure: true,
             sameSite: "none",
             path: "/",
