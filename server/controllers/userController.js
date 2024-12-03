@@ -94,7 +94,7 @@ exports.login = async (req, res) => {
         }
         // If match, create a token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
-        res.status(200).cookie("authToken", token, option).json({ token, user: { userName: user.userName, profilePicture: user.profilePicture } });
+        res.status(200).json({ token, user: { userName: user.userName, profilePicture: user.profilePicture } });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

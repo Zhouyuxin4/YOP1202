@@ -214,7 +214,6 @@ const MapComponent = ({ apiKey }) => {
                 secure: true,
                 sameSite: 'none',     // Allows cross-site requests
                 path: '/',            // Makes the cookie accessible throughout the site
-                domain: ".vercel.app"
             });
 
             if (response.status === 201) {

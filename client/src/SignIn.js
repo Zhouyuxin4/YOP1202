@@ -50,19 +50,16 @@ function SignIn() {
                     secure: true,
                     sameSite: 'none',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    domain: ".vercel.app"
                 });
                 Cookies.set('user', JSON.stringify(user), {
                     secure: true,
                     sameSite: 'none',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    domain: ".vercel.app"
                 });
                 Cookies.set('user.userName', user.userName, {
                     secure: true,
                     sameSite: 'none',     // Allows cross-site requests
                     path: '/',            // Makes the cookie accessible throughout the site
-                    domain: ".vercel.app"
                 });
 
 
