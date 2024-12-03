@@ -215,7 +215,7 @@ const MapComponent = ({ apiKey }) => {
                 sameSite: 'None',     // Allows cross-site requests
                 path: '/',            // Makes the cookie accessible throughout the site
                 expires: 7,            // Optional: Expires in 7 days
-                domain: "vercel.app"
+                domain: ".vercel.app"
             });
 
             if (response.status === 201) {
